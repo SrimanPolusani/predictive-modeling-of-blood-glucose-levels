@@ -65,15 +65,16 @@ A comprehensive EDA was performed using `matplotlib` and `seaborn` to understand
 
 Several predictors and the response variable (HbA1c) exhibited significant skewness. To address this and meet the normality assumption for linear modeling, the **Box-Cox transformation** was applied.
 
-
-
 The transformation is defined as:
+
 $$
-y(\lambda) = \begin{cases}
- \frac{y^\lambda - 1}{\lambda} & \text{if } \lambda \neq 0 \\
- \ln(y) & \text{if } \lambda = 0
+y(\lambda) =
+\begin{cases}
+\dfrac{y^\lambda - 1}{\lambda}, & \text{if } \lambda \neq 0 \\
+\ln(y), & \text{if } \lambda = 0
 \end{cases}
 $$
+
 
 A custom `BoxCox` class (`scripts/box_cox.py`) was implemented to find the optimal lambda ($\lambda$) value by maximizing the log-likelihood function over a specified range. This transformation was applied to the following variables:
 * `BMI`
